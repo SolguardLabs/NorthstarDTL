@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.testFlags": ["./..."],
+  "files.exclude": {
+    "bin": true,
+    "node_modules": true,
+    "coverage": true
+  }
+}

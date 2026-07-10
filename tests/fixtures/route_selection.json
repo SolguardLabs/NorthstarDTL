@@ -1,0 +1,21 @@
+{
+  "name": "route selection",
+  "actions": [
+    {
+      "type": "quote",
+      "label": "initial-quote",
+      "intent": {
+        "id": "intent:route-selection",
+        "sourceAccount": "acct:alice",
+        "destinationAccount": "acct:bob",
+        "sourceAsset": "usdc",
+        "destinationAsset": "eurc",
+        "amount": 100000,
+        "minDestinationAmount": 90000,
+        "maxFee": 1000,
+        "priority": "preferred"
+      }
+    },
+    { "type": "snapshot", "label": "snapshot" }
+  ]
+}

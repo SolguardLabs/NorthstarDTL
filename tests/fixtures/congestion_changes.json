@@ -1,0 +1,46 @@
+{
+  "name": "congestion changes",
+  "actions": [
+    {
+      "type": "quote",
+      "label": "before",
+      "intent": {
+        "id": "intent:before-congestion",
+        "sourceAccount": "acct:alice",
+        "destinationAccount": "acct:bob",
+        "sourceAsset": "usdc",
+        "destinationAsset": "eurc",
+        "amount": 100000,
+        "minDestinationAmount": 90000,
+        "maxFee": 1000,
+        "priority": "preferred"
+      }
+    },
+    {
+      "type": "congestion",
+      "label": "north-congested",
+      "congestion": {
+        "routeId": "route:north-prime",
+        "congestionBps": 3500,
+        "congestionLevel": 300,
+        "lastObservedSlot": 77
+      }
+    },
+    {
+      "type": "quote",
+      "label": "after",
+      "intent": {
+        "id": "intent:after-congestion",
+        "sourceAccount": "acct:alice",
+        "destinationAccount": "acct:bob",
+        "sourceAsset": "usdc",
+        "destinationAsset": "eurc",
+        "amount": 100000,
+        "minDestinationAmount": 90000,
+        "maxFee": 1000,
+        "priority": "preferred"
+      }
+    },
+    { "type": "snapshot", "label": "snapshot" }
+  ]
+}

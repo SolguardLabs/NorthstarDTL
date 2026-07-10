@@ -1,0 +1,31 @@
+{
+  "name": "fallback routing",
+  "actions": [
+    {
+      "type": "submit",
+      "label": "admit",
+      "intent": {
+        "id": "intent:fallback-ticket",
+        "sourceAccount": "acct:alice",
+        "destinationAccount": "acct:bob",
+        "sourceAsset": "usdc",
+        "destinationAsset": "eurc",
+        "amount": 100000,
+        "minDestinationAmount": 90000,
+        "maxFee": 1000,
+        "priority": "urgent"
+      }
+    },
+    {
+      "type": "update_route",
+      "label": "primary-draining",
+      "routeUpdate": {
+        "id": "route:north-prime",
+        "status": "draining"
+      }
+    },
+    { "type": "advance_epoch", "label": "ready", "delta": 1 },
+    { "type": "execute", "label": "execute", "count": 1 },
+    { "type": "snapshot", "label": "snapshot" }
+  ]
+}
