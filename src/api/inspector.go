@@ -32,6 +32,15 @@ type OperationsView struct {
 	AuditIssues []domain.AuditIssue        `json:"auditIssues"`
 }
 
+func (service *Service) Capacity() []domain.CapacityProjection {
+	routes := service.catalog.Routes()
+	views := make([]domain.CapacityProjection, len(routes))
+	for index, route := range routes {
+		views[index] = domain.NewCapacityProjection(route)
+	}
+	return views
+}
+
 func (service *Service) RouteBook() RouteBook {
 	routes := service.catalog.Routes()
 	metrics := make([]domain.RouteMetrics, len(routes))
