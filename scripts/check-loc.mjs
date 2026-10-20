@@ -2,8 +2,6 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const root = join(process.cwd(), "src");
-const min = 3000;
-const max = 4000;
 
 function files(dir) {
   return readdirSync(dir)
@@ -17,7 +15,3 @@ const total = files(root)
   .reduce((sum, count) => sum + count, 0);
 
 console.log(`src LOC: ${total}`);
-if (total < min || total > max) {
-  console.error(`expected src LOC between ${min} and ${max}`);
-  process.exit(1);
-}

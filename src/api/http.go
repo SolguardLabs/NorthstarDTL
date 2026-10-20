@@ -12,6 +12,9 @@ func NewHTTPHandler(service *Service) http.Handler {
 	mux.HandleFunc("GET /snapshot", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, service.Snapshot())
 	})
+	mux.HandleFunc("GET /capacity", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, service.Capacity())
+	})
 	mux.HandleFunc("POST /quote", func(w http.ResponseWriter, r *http.Request) {
 		var intent domain.Intent
 		if err := json.NewDecoder(r.Body).Decode(&intent); err != nil {
